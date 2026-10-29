@@ -1,0 +1,176 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#111827">
+    <title>Crossword Quest — its_TIE</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+
+<body>
+    <div class="app">
+        <header class="topbar">
+            <a class="brand" href="#" aria-label="Crossword Quest home">
+                <span class="brand-icon">✳</span>
+                <span>crossword<span class="brand-accent">.</span></span>
+            </a>
+
+            <div class="header-actions">
+                <span class="level-badge">DAILY BRAIN TRAINING</span>
+                <button id="newGameBtn" class="button button-outline" type="button">
+                    ↻ New Puzzle
+                </button>
+            </div>
+        </header>
+
+        <main>
+            <section class="intro">
+                <div>
+                    <p class="eyebrow">YOUR DAILY WORD CHALLENGE</p>
+                    <h1>Crossword <span>Quest</span></h1>
+                    <p class="subtitle">
+                        Think carefully. Find the words. Complete the grid.
+                    </p>
+                </div>
+
+                <div class="stats">
+                    <div class="stat">
+                        <span class="stat-label">SCORE</span>
+                        <strong id="score">0</strong>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-label">TIME</span>
+                        <strong id="timer">00:00</strong>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-label">PUZZLE</span>
+                        <strong id="puzzleNumber">01</strong>
+                    </div>
+                </div>
+            </section>
+
+            <section class="game-layout">
+                <section class="panel crossword-panel">
+                    <div class="panel-heading">
+                        <div>
+                            <p class="eyebrow">PUZZLE BOARD</p>
+                            <h2>Fill in the blanks</h2>
+                        </div>
+                        <span id="progressLabel" class="progress-label">0 / 0 letters</span>
+                    </div>
+
+                    <div class="progress-track">
+                        <div id="progressBar" class="progress-bar"></div>
+                    </div>
+
+                    <div class="grid-scroll">
+                        <div id="crosswordGrid" class="crossword-grid" role="group" aria-label="Crossword puzzle grid">
+                        </div>
+                    </div>
+
+                    <p id="gameMessage" class="game-message" aria-live="polite">
+                        Select a numbered square or a clue to begin.
+                    </p>
+
+                    <div class="game-controls">
+                        <button id="checkBtn" class="button button-primary" type="button">
+                            ✓ Check Answers
+                        </button>
+                        <button id="hintBtn" class="button button-secondary" type="button">
+                            ✦ Hint
+                        </button>
+                        <button id="revealBtn" class="button button-secondary" type="button">
+                            ◉ Reveal Word
+                        </button>
+                        <button id="clearBtn" class="button button-secondary" type="button">
+                            ⌫ Clear Word
+                        </button>
+                    </div>
+
+                    <div class="keyboard-help">
+                        <span>↑ ↓ ← → Navigate</span>
+                        <span>Tab Switch direction</span>
+                        <span>Backspace Erase</span>
+                    </div>
+                </section>
+
+                <aside class="panel clues-panel">
+                    <div class="panel-heading">
+                        <div>
+                            <p class="eyebrow">WORD CLUES</p>
+                            <h2>Crack the clues</h2>
+                        </div>
+                    </div>
+
+                    <div class="direction-tabs" role="group" aria-label="Clue direction">
+                        <button id="acrossTab" class="direction-tab active" type="button" aria-pressed="true">
+                            Across
+                        </button>
+                        <button id="downTab" class="direction-tab" type="button" aria-pressed="false">
+                            Down
+                        </button>
+                    </div>
+
+                    <div id="activeClue" class="active-clue">
+                        <span class="active-clue-number">—</span>
+                        <div>
+                            <p class="eyebrow">SELECTED CLUE</p>
+                            <p id="activeClueText">Choose a clue to get started.</p>
+                        </div>
+                    </div>
+
+                    <div id="clueList" class="clue-list"></div>
+
+                    <div class="clue-footer">
+                        <span class="legend-dot"></span>
+                        Selected clue
+                        <span class="legend-dot legend-dot-filled"></span>
+                        Completed word
+                    </div>
+                </aside>
+            </section>
+
+            <section class="bottom-note">
+                <span class="note-icon">💡</span>
+                <p>
+                    <strong>Brain tip:</strong>
+                    When a clue feels tricky, solve the crossing words first.
+                    Every correct letter brings you closer to the answer.
+                </p>
+            </section>
+        </main>
+
+        <footer>
+            <span>Made for curious minds.</span>
+            <span class="creator">Created by <strong>its_TIE</strong> ♥</span>
+        </footer>
+    </div>
+
+    <div id="winModal" class="modal" hidden>
+        <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="winTitle">
+            <div class="win-icon">🏆</div>
+            <p class="eyebrow">PUZZLE COMPLETED</p>
+            <h2 id="winTitle">Brilliant work!</h2>
+            <p id="winSummary">You solved the crossword.</p>
+            <div class="win-stats">
+                <div>
+                    <span>FINAL SCORE</span>
+                    <strong id="finalScore">0</strong>
+                </div>
+                <div>
+                    <span>TIME TAKEN</span>
+                    <strong id="finalTime">00:00</strong>
+                </div>
+            </div>
+            <button id="playAgainBtn" class="button button-primary" type="button">
+                Play Another Puzzle →
+            </button>
+        </div>
+    </div>
+</body>
+
+</html>
